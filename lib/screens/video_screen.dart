@@ -22,17 +22,24 @@ class _VideoScreenState extends State<VideoScreen> {
   final Map<String, String> _imageUrls = {
     'images/caliente.jpg': 'https://www.caliente.mx/',
     'images/donRamon.jpeg': 'https://www.casadonramon.com/?lang=es/',
-    'images/chapulogo.jpeg': 'https://cerveceriachapultepec.com/',
+    'images/chapulogo.png': 'https://cerveceriachapultepec.com/',
     'images/elektra.png': 'https://www.elektra.mx/',
     'images/ticketmaster.jpg': 'https://www.ticketmaster.com.mx/',
     'images/bancoazteca.jpeg': 'https://www.bancoazteca.com.mx/',
     'images/farmaciasGuadalajara.png': 'https://www.farmaciasguadalajara.com/',
-    'images/telmex.jpg': 'https://telmex.com/',
-    'images/tecate.jpg': 'https://tecate.com/',
+    'images/akron.jpg': 'https://www.ticketmaster.com.mx/estadio-akron-boletos-zapopan/venue/500700',
+    'images/telmex.png': 'https://telmex.com/',
+    'images/tecate.png': 'https://tecate.com/',
+    'images/masking.png': 'https://www.maskkingmexico.com/',
     'images/sears.png': 'https://www.sears.com.mx/',
     'images/gnp.jpg': 'https://www.gnp.com.mx/',
     'images/mutuo.png': 'https://mutuo.mx/',
-    'images/ouirestaurant.png': 'https://oui-restaurant.netlify.app/',
+    'images/oui.png': 'https://oui-restaurant.netlify.app/',
+    'images/minerva.png': 'https://www.cervezaminerva.mx/',
+    'images/movistar.png': 'https://tienda.movistar.com.mx/',
+    'images/okuma.png':  'https://okuma.com.mx/',
+    'images/informador.jpg': 'https://www.informador.mx/',
+    'images/rappi.png': 'https://www.rappi.com.mx/',
   };
   late String _currentImagePath;
   late String _currentImageUrl;
@@ -47,7 +54,7 @@ class _VideoScreenState extends State<VideoScreen> {
         return 'https://www.caliente.mx/';
       case 'images/donRamon.jpeg':
         return 'https://www.casadonramon.com/tequila/?lang=es/';
-      case 'images/chapulogo.jpeg':
+      case 'images/chapulogo.png':
         return 'https://cerveceriachapultepec.com/';
       case 'images/elektra.png':
         return 'https://www.elektra.mx/';
@@ -57,18 +64,32 @@ class _VideoScreenState extends State<VideoScreen> {
         return 'https://www.bancoazteca.com.mx/';
       case 'images/farmaciasGuadalajara.png':
         return 'https://www.farmaciasguadalajara.com/';
-      case 'images/telmex.jpg':
+      case 'images/akron.jpg':
+        return 'https://www.ticketmaster.com.mx/estadio-akron-boletos-zapopan/venue/500700';
+      case 'images/telmex.png':
         return 'https://telmex.com/';
       case 'images/tecate.jpg':
         return 'https://tecate.com/';
+      case 'images/masking.png':
+        return 'https://www.maskkingmexico.com/';
       case 'images/sears.png':
         return 'https://www.sears.com.mx/';
       case 'images/gnp.jpg':
         return 'https://www.gnp.com.mx/';
       case 'images/mutuo.png':
         return 'https://mutuo.mx/';
-      case 'images/ouirestaurant.png':
+      case 'images/oui.png':
         return 'https://oui-restaurant.netlify.app/';
+      case 'images/minerva.png':
+        return 'https://www.cervezaminerva.mx/';
+      case 'images/movistar.png':
+        return 'https://tienda.movistar.com.mx/';
+      case 'images/okuma.png':
+        return 'https://okuma.com.mx/';
+      case 'images/informador.jpg':
+        return 'https://www.informador.mx/';
+      case 'images/rappi.png':
+        return 'https://www.rappi.com.mx/';
       default:
         throw 'Invalid image path: $imagePath';
     }
@@ -193,9 +214,9 @@ class _VideoScreenState extends State<VideoScreen> {
                             image: AssetImage(_currentImagePath),
                             onPressed: () async {
                               if (await canLaunch(_currentImageUrl)) {
-                              await launch(_currentImageUrl);
+                                await launch(_currentImageUrl);
                               } else {
-                              throw 'Could not launch $_currentImageUrl';
+                                throw 'Could not launch $_currentImageUrl';
                               }
                             },
                           ),
@@ -278,11 +299,11 @@ class _VideoScreenState extends State<VideoScreen> {
                                     ),
                                   ),
                                   hintText:
-                                      'Proximamente podras Agregar Tus Comentarios Aqui en Esta Seccion '
+                                  'Proximamente podras Agregar Tus Comentarios Aqui en Esta Seccion '
                                       'Atte. El Compa Felix de Bandera Musical!!!',
                                   hintStyle: TextStyle(
                                     color: Colors.yellow,
-                                    fontSize: 10.0,
+                                    fontSize: 15.0,
                                     fontWeight: FontWeight.w600,
                                     fontFamily: 'Teko',
                                   ),
@@ -321,3 +342,4 @@ class _VideoScreenState extends State<VideoScreen> {
     );
   }
 }
+

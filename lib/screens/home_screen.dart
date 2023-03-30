@@ -3,6 +3,8 @@ import 'package:bandera/models/channel_model.dart';
 import 'package:bandera/models/video_model.dart';
 import 'package:bandera/screens/video_screen.dart';
 import 'package:bandera/services/api_services.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:social_media_flutter/social_media_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -177,6 +179,102 @@ class _HomeScreenState extends State<HomeScreen> {
               Theme.of(context).primaryColor, // Red
             ),
           ),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        height: 60, // set the height to whatever value you need
+        color: Colors.black,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            GestureDetector(
+              onTap: () async {
+                final url = 'https://banderamusical.com/';
+                if (await canLaunch(url)) {
+                  await launch(url);
+                }
+              },
+              child: SocialWidget(
+                placeholderText: "",
+                iconData: Icons.flag_circle,
+                iconColor: Colors.red,
+                link: '',
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                showModalBottomSheet(
+                  context: context,
+                  isScrollControlled: true,
+                  builder: (BuildContext context) {
+                    return Container(
+                      color: Colors.black, // set the background color here
+                      child: SingleChildScrollView(
+                        child: Container(
+                          padding: EdgeInsets.only(
+                            bottom: MediaQuery.of(context).viewInsets.bottom,
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                'Agrega tu Comentario',
+                                style: const TextStyle(
+                                  color: Colors.yellow,
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: 'Teko',
+                                ),
+                              ),
+                              SizedBox(
+                                height: 6,
+                              ),
+                              TextFormField(
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Colors.yellow,
+                                    ),
+                                  ),
+                                  hintText:
+                                  'Proximamente podras Agregar Tus Comentarios Aqui en Esta Seccion '
+                                      'Atte. El Compa Felix de Bandera Musical!!!',
+                                  hintStyle: TextStyle(
+                                    color: Colors.yellow,
+                                    fontSize: 15.0,
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: 'Teko',
+                                  ),
+                                  // set the text color here
+                                  filled: true,
+                                  fillColor: Colors.black,
+                                  contentPadding: EdgeInsets.symmetric(
+                                      vertical: 10.0, horizontal: 10.0),
+                                  // set the text color here
+                                  labelStyle: TextStyle(color: Colors.white),
+                                ),
+                                maxLines: 5,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.normal,
+                                  fontFamily: 'Teko',
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
+              child: Icon(
+                Icons.comment,
+                color: Colors.yellow,
+              ),
+            ),
+          ],
         ),
       ),
     );

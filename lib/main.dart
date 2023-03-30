@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.yellow,
         textTheme: TextTheme(
-          headline6: TextStyle(
+          titleLarge: TextStyle(
             fontFamily: 'Gajraj',
             fontSize: 24,
             fontWeight: FontWeight.bold,

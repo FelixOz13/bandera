@@ -50,7 +50,7 @@ class APIService {
     Map<String, String> parameters = {
       'part': 'snippet',
       'playlistId': playlistId,
-      'maxResults': '25',
+      'maxResults': '50',
       'pageToken': _nextPageToken,
       'key': API_KEY,
     };
