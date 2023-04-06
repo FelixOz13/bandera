@@ -26,20 +26,23 @@ class _VideoScreenState extends State<VideoScreen> {
     'images/elektra.png': 'https://www.elektra.mx/',
     'images/ticketmaster.jpg': 'https://www.ticketmaster.com.mx/',
     'images/bancoazteca.jpeg': 'https://www.bancoazteca.com.mx/',
-    'images/farmaciasGuadalajara.png': 'https://www.farmaciasguadalajara.com/',
-    'images/akron.jpg': 'https://www.ticketmaster.com.mx/estadio-akron-boletos-zapopan/venue/500700',
+    'images/qin.jpg': 'https://www.qin.mx/',
+    'images/akron.jpg':
+        'https://www.ticketmaster.com.mx/estadio-akron-boletos-zapopan/venue/500700',
     'images/telmex.png': 'https://telmex.com/',
     'images/tecate.png': 'https://tecate.com/',
     'images/masking.png': 'https://www.maskkingmexico.com/',
-    'images/sears.png': 'https://www.sears.com.mx/',
+    'images/teatrodiana.png': 'https://www.teatrodiana.com/',
     'images/gnp.jpg': 'https://www.gnp.com.mx/',
     'images/mutuo.png': 'https://mutuo.mx/',
     'images/oui.png': 'https://oui-restaurant.netlify.app/',
     'images/minerva.png': 'https://www.cervezaminerva.mx/',
     'images/movistar.png': 'https://tienda.movistar.com.mx/',
-    'images/okuma.png':  'https://okuma.com.mx/',
+    'images/okuma.png': 'https://okuma.com.mx/',
     'images/informador.jpg': 'https://www.informador.mx/',
     'images/rappi.png': 'https://www.rappi.com.mx/',
+    'images/auditorio-telmex.jpg': 'https://www.auditorio-telmex.com/',
+    'images/sanmatias.jpg': 'https://www.sanmatias.com/mx/',
   };
   late String _currentImagePath;
   late String _currentImageUrl;
@@ -62,8 +65,8 @@ class _VideoScreenState extends State<VideoScreen> {
         return 'https://www.ticketmaster.com.mx/';
       case 'images/bancoazteca.jpeg':
         return 'https://www.bancoazteca.com.mx/';
-      case 'images/farmaciasGuadalajara.png':
-        return 'https://www.farmaciasguadalajara.com/';
+      case 'images/qin.jpg':
+        return 'https://www.qin.mx/';
       case 'images/akron.jpg':
         return 'https://www.ticketmaster.com.mx/estadio-akron-boletos-zapopan/venue/500700';
       case 'images/telmex.png':
@@ -72,8 +75,8 @@ class _VideoScreenState extends State<VideoScreen> {
         return 'https://tecate.com/';
       case 'images/masking.png':
         return 'https://www.maskkingmexico.com/';
-      case 'images/sears.png':
-        return 'https://www.sears.com.mx/';
+      case 'images/teatrodiana.png':
+        return 'https://www.teatrodiana.com/';
       case 'images/gnp.jpg':
         return 'https://www.gnp.com.mx/';
       case 'images/mutuo.png':
@@ -90,14 +93,20 @@ class _VideoScreenState extends State<VideoScreen> {
         return 'https://www.informador.mx/';
       case 'images/rappi.png':
         return 'https://www.rappi.com.mx/';
+      case 'images/auditorio-telmex.jpg':
+        return 'https://www.auditorio-telmex.com/';
+      case 'images/sanmatias.jpg':
+        return 'https://www.sanmatias.com/mx/';
       default:
         throw 'Invalid image path: $imagePath';
     }
   }
+
   @override
   void initState() {
     super.initState();
-    _currentImagePath = _imageUrls.keys.elementAt(_random.nextInt(_imageUrls.length));
+    _currentImagePath =
+        _imageUrls.keys.elementAt(_random.nextInt(_imageUrls.length));
     _currentImageUrl = _imageUrls[_currentImagePath]!;
     _controller = YoutubePlayerController(
       initialVideoId: widget.id,
@@ -110,7 +119,6 @@ class _VideoScreenState extends State<VideoScreen> {
     );
     _controller.addListener(_onPlayerStateChange);
   }
-
 
   void _onPlayerStateChange() {
     if (_controller.value.isPlaying != _isPlaying) {
@@ -222,7 +230,6 @@ class _VideoScreenState extends State<VideoScreen> {
                           ),
                         ),
                       ),
-
                       Container(
                         height: 60,
                         width: 340,
@@ -299,7 +306,7 @@ class _VideoScreenState extends State<VideoScreen> {
                                     ),
                                   ),
                                   hintText:
-                                  'Proximamente podras Agregar Tus Comentarios Aqui en Esta Seccion '
+                                      'Proximamente podras Agregar Tus Comentarios Aqui en Esta Seccion '
                                       'Atte. El Compa Felix de Bandera Musical!!!',
                                   hintStyle: TextStyle(
                                     color: Colors.yellow,
@@ -342,4 +349,3 @@ class _VideoScreenState extends State<VideoScreen> {
     );
   }
 }
-

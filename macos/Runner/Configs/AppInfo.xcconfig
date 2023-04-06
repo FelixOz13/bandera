@@ -8,7 +8,7 @@
 PRODUCT_NAME = Bandera Musical;
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.bandera.musical;
+PRODUCT_BUNDLE_IDENTIFIER = com.banderamusical.mexico;
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2023 com.example. All rights reserved.

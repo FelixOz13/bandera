@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
       padding: const EdgeInsets.all(20.0),
       height: 100.0,
       decoration: const BoxDecoration(
-        color: Colors.yellow,
+        color: Color.fromARGB(255, 8, 82, 10),
         boxShadow: [
           BoxShadow(
             color: Colors.black,
@@ -61,13 +61,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   _channel!.title,
                   style: const TextStyle(
                       color: Colors.black,
-                      fontSize: 20.0,
+                      fontSize: 16.0,
                       fontWeight: FontWeight.w600,
-                      fontFamily: 'Gajraj'
-                  ),
+                      fontFamily: 'Gajraj'),
                   overflow: TextOverflow.ellipsis,
                 ),
-
               ],
             ),
           )
@@ -89,7 +87,6 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.all(10.0),
         height: 160.0,
         decoration: const BoxDecoration(
-
           color: Colors.black,
           boxShadow: [
             BoxShadow(
@@ -110,10 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Text(
                 video.title,
                 style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 12.0,
-                    fontFamily: 'Gajraj'
-                ),
+                    color: Colors.white, fontSize: 12.0, fontFamily: 'Gajraj'),
               ),
             ),
           ],
@@ -124,8 +118,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   _loadMoreVideos() async {
     _isLoading = true;
-    List<Video> moreVideos = (await
-    APIService.instance..fetchVideosFromPlaylist(playlistId: _channel!.uploadPlaylistId)) as List<Video>;
+    List<Video> moreVideos = (await APIService.instance
+          ..fetchVideosFromPlaylist(playlistId: _channel!.uploadPlaylistId))
+        as List<Video>;
 
     List<Video> allVideos = _channel!.videos!..addAll(moreVideos);
     setState(() {
@@ -152,34 +147,34 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         child: _channel != null
             ? NotificationListener<ScrollNotification>(
-          onNotification: (ScrollNotification scrollDetails) {
-            if (!_isLoading &&
-                _channel!.videos!.length !=
-                    int.parse(_channel!.videoCount) &&
-                scrollDetails.metrics.pixels ==
-                    scrollDetails.metrics.maxScrollExtent) {
-              _loadMoreVideos();
-            }
-            return false;
-          },
-          child: ListView.builder(
-            itemCount: 1 + _channel!.videos!.length,
-            itemBuilder: (BuildContext context, int index) {
-              if (index == 0) {
-                return _buildProfileInfo();
-              }
-              Video video = _channel!.videos![index - 1];
-              return _buildVideo(video);
-            },
-          ),
-        )
+                onNotification: (ScrollNotification scrollDetails) {
+                  if (!_isLoading &&
+                      _channel!.videos!.length !=
+                          int.parse(_channel!.videoCount) &&
+                      scrollDetails.metrics.pixels ==
+                          scrollDetails.metrics.maxScrollExtent) {
+                    _loadMoreVideos();
+                  }
+                  return false;
+                },
+                child: ListView.builder(
+                  itemCount: 1 + _channel!.videos!.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    if (index == 0) {
+                      return _buildProfileInfo();
+                    }
+                    Video video = _channel!.videos![index - 1];
+                    return _buildVideo(video);
+                  },
+                ),
+              )
             : Center(
-          child: CircularProgressIndicator(
-            valueColor: AlwaysStoppedAnimation<Color>(
-              Theme.of(context).primaryColor, // Red
-            ),
-          ),
-        ),
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    Theme.of(context).primaryColor, // Red
+                  ),
+                ),
+              ),
       ),
       bottomNavigationBar: Container(
         height: 60, // set the height to whatever value you need
@@ -237,7 +232,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                   ),
                                   hintText:
-                                  'Proximamente podras Agregar Tus Comentarios Aqui en Esta Seccion '
+                                      'Proximamente podras Agregar Tus Comentarios Aqui en Esta Seccion '
                                       'Atte. El Compa Felix de Bandera Musical!!!',
                                   hintStyle: TextStyle(
                                     color: Colors.yellow,
