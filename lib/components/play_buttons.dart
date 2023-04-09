@@ -95,48 +95,46 @@ class PlayButtons extends StatelessWidget {
           ),
         ],
       ),
+
       child: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: EdgeInsets.only(bottom: 20.0),
-              child: AnimatedSwitcher(
-                duration: Duration(milliseconds: 500),
-                transitionBuilder: (child, animation) => ScaleTransition(
-                  scale: animation,
-                  child: child,
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          // Add padding to the icon button and wrap it in an AnimatedSwitcher widget
+          Padding(
+            padding: EdgeInsets.only(bottom: 20.0, right: 10.0),
+            child: AnimatedSwitcher(
+              duration: Duration(milliseconds: 500),
+              transitionBuilder: (child, animation) =>
+                  ScaleTransition(
+                    scale: animation,
+                    child: child,
+                  ),
+              // Use a ternary operator to conditionally render the play or pause icon button
+              child: isPlaying
+                  ? IconButton(
+                key: ValueKey(Icons.pause),
+                icon: Icon(
+                  Icons.pause,
+                  color: Colors.pink,
+                  size: 50,
                 ),
-                child: isPlaying
-                    ? Padding(
-                        padding: EdgeInsets.only(right:10.0),
-                        child: IconButton(
-                          key: ValueKey(Icons.pause),
-                          icon: Icon(
-                            Icons.pause,
-                            color: Colors.pink,
-                            size: 50,
-                          ),
-                          onPressed: onPausePressed,
-                        ),
-                      )
-                    : Padding(
-                        padding: EdgeInsets.only(right:10.0),
-                        child: IconButton(
-                          key: ValueKey(Icons.play_arrow),
-                          icon: Icon(
-                            Icons.play_arrow,
-                            color: Colors.green,
-                            size: 50,
-                          ),
-                          onPressed: onPlayPressed,
-                        ),
-                      ),
+                onPressed: onPausePressed,
+              )
+                  : IconButton(
+                key: ValueKey(Icons.play_arrow),
+                icon: Icon(
+                  Icons.play_arrow,
+                  color: Colors.green,
+                  size: 50,
+                ),
+                onPressed: onPlayPressed,
               ),
             ),
-
-          ]),
+          ),
+        ],
+      ),
     );
   }
 }

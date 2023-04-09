@@ -28,7 +28,7 @@ class _VideoScreenState extends State<VideoScreen> {
     'images/bancoazteca.jpeg': 'https://www.bancoazteca.com.mx/',
     'images/qin.jpg': 'https://www.qin.mx/',
     'images/akron.jpg':
-        'https://www.ticketmaster.com.mx/estadio-akron-boletos-zapopan/venue/500700',
+    'https://www.ticketmaster.com.mx/estadio-akron-boletos-zapopan/venue/500700',
     'images/telmex.png': 'https://telmex.com/',
     'images/tecate.png': 'https://tecate.com/',
     'images/masking.png': 'https://www.maskkingmexico.com/',
@@ -43,6 +43,7 @@ class _VideoScreenState extends State<VideoScreen> {
     'images/rappi.png': 'https://www.rappi.com.mx/',
     'images/auditorio-telmex.jpg': 'https://www.auditorio-telmex.com/',
     'images/sanmatias.jpg': 'https://www.sanmatias.com/mx/',
+    'images/corona.jpg': 'https://cervezacorona.es/',
   };
   late String _currentImagePath;
   late String _currentImageUrl;
@@ -97,6 +98,8 @@ class _VideoScreenState extends State<VideoScreen> {
         return 'https://www.auditorio-telmex.com/';
       case 'images/sanmatias.jpg':
         return 'https://www.sanmatias.com/mx/';
+      case 'images/corona.jpg':
+        return 'https://cervezacorona.es/';
       default:
         throw 'Invalid image path: $imagePath';
     }
@@ -306,7 +309,7 @@ class _VideoScreenState extends State<VideoScreen> {
                                     ),
                                   ),
                                   hintText:
-                                      'Proximamente podras Agregar Tus Comentarios Aqui en Esta Seccion '
+                                  'Proximamente podras Agregar Tus Comentarios Aqui en Esta Seccion '
                                       'Atte. El Compa Felix de Bandera Musical!!!',
                                   hintStyle: TextStyle(
                                     color: Colors.yellow,
