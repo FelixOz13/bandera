@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: <Widget>[
           CircleAvatar(
             backgroundColor: Colors.green,
-            radius: 35.0,
+            radius: 30.0,
             backgroundImage: NetworkImage(_channel!.profilePictureUrl),
           ),
           const SizedBox(width: 12.0),
@@ -141,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.all(0),
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/universalbackground.jpg'),
+            image: AssetImage('images/mexback.png'),
             fit: BoxFit.cover,
           ),
         ),

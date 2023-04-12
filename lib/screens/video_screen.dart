@@ -5,6 +5,7 @@ import '../components/play_buttons.dart';
 import '../components/image_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:social_media_flutter/social_media_flutter.dart';
+import 'package:flutter/services.dart';
 import 'dart:math';
 
 class VideoScreen extends StatefulWidget {
@@ -28,10 +29,10 @@ class _VideoScreenState extends State<VideoScreen> {
     'images/bancoazteca.jpeg': 'https://www.bancoazteca.com.mx/',
     'images/qin.jpg': 'https://www.qin.mx/',
     'images/akron.jpg':
-    'https://www.ticketmaster.com.mx/estadio-akron-boletos-zapopan/venue/500700',
+        'https://www.ticketmaster.com.mx/estadio-akron-boletos-zapopan/venue/500700',
     'images/telmex.png': 'https://telmex.com/',
-    'images/tecate.png': 'https://tecate.com/',
-    'images/masking.png': 'https://www.maskkingmexico.com/',
+    'images/tecate.jpg': 'https://tecate.com/',
+    'images/tradicional.png': 'https://cuervo.com.mx/es/brands/tequila/jose-cuervo-tradicional/',
     'images/teatrodiana.png': 'https://www.teatrodiana.com/',
     'images/gnp.jpg': 'https://www.gnp.com.mx/',
     'images/mutuo.png': 'https://mutuo.mx/',
@@ -49,7 +50,7 @@ class _VideoScreenState extends State<VideoScreen> {
   late String _currentImageUrl;
 
   late YoutubePlayerController _controller;
-
+  bool _isFullScreen = false;
   bool _isPlaying = false;
 
   String _getImageUrl(String imagePath) {
@@ -74,8 +75,8 @@ class _VideoScreenState extends State<VideoScreen> {
         return 'https://telmex.com/';
       case 'images/tecate.jpg':
         return 'https://tecate.com/';
-      case 'images/masking.png':
-        return 'https://www.maskkingmexico.com/';
+      case 'images/tradicional.png':
+        return 'https://cuervo.com.mx/es/brands/tequila/jose-cuervo-tradicional/';
       case 'images/teatrodiana.png':
         return 'https://www.teatrodiana.com/';
       case 'images/gnp.jpg':
@@ -130,9 +131,15 @@ class _VideoScreenState extends State<VideoScreen> {
       });
     }
   }
+  void _toggleFullScreen() {
+    setState(() {
+      _isFullScreen = !_isFullScreen;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -153,36 +160,41 @@ class _VideoScreenState extends State<VideoScreen> {
         padding: const EdgeInsets.all(0),
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/universalbackground.jpg'),
+            image: AssetImage('images/mexback2.png'),
             fit: BoxFit.cover,
           ),
         ),
         child: Column(
           children: [
             SizedBox(
-              width: 400,
-              child: YoutubePlayer(
-                controller: _controller,
-                showVideoProgressIndicator: true,
-                onReady: () {
-                  // your code here
-                },
-                bottomActions: [
-                  const SizedBox(width: 14.0),
-                  CurrentPosition(),
-                  const SizedBox(width: 8.0),
-                  ProgressBar(isExpanded: true),
-                  RemainingDuration(),
-                  const PlaybackSpeedButton(),
-                ],
+              width: 620,
+              height: 200,
+              child: AspectRatio(
+                aspectRatio: 16/9,
+                child: YoutubePlayer(
+                  controller: _controller,
+                  showVideoProgressIndicator: true,
+
+                  bottomActions: [
+                    const SizedBox(width: 14.0),
+                    CurrentPosition(),
+                    const SizedBox(width: 8.0),
+                    ProgressBar(isExpanded: true),
+                    RemainingDuration(),
+                    const SizedBox(width: 14.0),
+
+                  ],
+                ),
               ),
             ),
-            SizedBox(height: 12),
+
+
+            SizedBox(height: 3),
             Container(
               padding: const EdgeInsets.all(12),
               child: Column(
                 children: [
-                  SizedBox(height: 16),
+                  SizedBox(height: 2),
                   Container(
                     height: 40,
                     child: SocialMediaIcons(),
@@ -209,39 +221,52 @@ class _VideoScreenState extends State<VideoScreen> {
                   SizedBox(height: 12),
                   Column(
                     children: [
-                      Container(
-                        height: 150,
-                        width: 250,
-                        margin: EdgeInsets.only(bottom: 10),
-                        child: GestureDetector(
-                          onTap: () async {
-                            if (await canLaunch(_currentImageUrl)) {
-                              await launch(_currentImageUrl);
-                            } else {
-                              throw 'Could not launch $_currentImageUrl';
-                            }
-                          },
-                          child: ImageButton(
-                            image: AssetImage(_currentImagePath),
-                            onPressed: () async {
-                              if (await canLaunch(_currentImageUrl)) {
-                                await launch(_currentImageUrl);
-                              } else {
-                                throw 'Could not launch $_currentImageUrl';
-                              }
-                            },
+                      Column(
+                        children: [
+                          Text(
+                            'Patrocinado por:',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
                           ),
-                        ),
-                      ),
-                      Container(
-                        height: 60,
-                        width: 340,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('images/mobileregistered.png'),
-                            fit: BoxFit.cover,
+                          Container(
+                            height: 150,
+                            width: 250,
+                            margin: EdgeInsets.only(bottom: 10),
+                            child: GestureDetector(
+                              onTap: () async {
+                                if (await canLaunch(_currentImageUrl)) {
+                                  await launch(_currentImageUrl);
+                                } else {
+                                  throw 'Could not launch $_currentImageUrl';
+                                }
+                              },
+                              child: ImageButton(
+                                image: AssetImage(_currentImagePath),
+                                onPressed: () async {
+                                  if (await canLaunch(_currentImageUrl)) {
+                                    await launch(_currentImageUrl);
+                                  } else {
+                                    throw 'Could not launch $_currentImageUrl';
+                                  }
+                                },
+                              ),
+                            ),
                           ),
-                        ),
+                          Container(
+                            height: 50,
+                            width: 340,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image:
+                                    AssetImage('images/mobileregistered.png'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -309,7 +334,7 @@ class _VideoScreenState extends State<VideoScreen> {
                                     ),
                                   ),
                                   hintText:
-                                  'Proximamente podras Agregar Tus Comentarios Aqui en Esta Seccion '
+                                      'Proximamente podras Agregar Tus Comentarios Aqui en Esta Seccion '
                                       'Atte. El Compa Felix de Bandera Musical!!!',
                                   hintStyle: TextStyle(
                                     color: Colors.yellow,

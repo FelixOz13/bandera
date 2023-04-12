@@ -117,7 +117,7 @@ class PlayButtons extends StatelessWidget {
                 key: ValueKey(Icons.pause),
                 icon: Icon(
                   Icons.pause,
-                  color: Colors.pink,
+                  color: Colors.red,
                   size: 50,
                 ),
                 onPressed: onPausePressed,
