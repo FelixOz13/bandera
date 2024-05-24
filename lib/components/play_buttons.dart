@@ -86,7 +86,7 @@ class PlayButtons extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.black,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(50),
         boxShadow: [
           BoxShadow(
             color: Colors.green,
@@ -103,7 +103,7 @@ class PlayButtons extends StatelessWidget {
         children: [
           // Add padding to the icon button and wrap it in an AnimatedSwitcher widget
           Padding(
-            padding: EdgeInsets.only(bottom: 20.0, right: 10.0),
+            padding: EdgeInsets.only(bottom: 20.0, right: 0.0),
             child: AnimatedSwitcher(
               duration: Duration(milliseconds: 500),
               transitionBuilder: (child, animation) =>
@@ -118,7 +118,7 @@ class PlayButtons extends StatelessWidget {
                 icon: Icon(
                   Icons.pause,
                   color: Colors.red,
-                  size: 50,
+                  size: 60,
                 ),
                 onPressed: onPausePressed,
               )
@@ -127,7 +127,7 @@ class PlayButtons extends StatelessWidget {
                 icon: Icon(
                   Icons.play_arrow,
                   color: Colors.green,
-                  size: 50,
+                  size: 60,
                 ),
                 onPressed: onPlayPressed,
               ),

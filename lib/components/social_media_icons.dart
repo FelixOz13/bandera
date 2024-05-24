@@ -6,7 +6,7 @@ class SocialMediaIcons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(5, 1, 5, 1),
+      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
       decoration:BoxDecoration(
         color:Colors.black,
         borderRadius:BorderRadius.circular(10.0),

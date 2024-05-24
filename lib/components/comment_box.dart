@@ -58,7 +58,7 @@ class CommentBox extends StatelessWidget {
       },
       child: Container(
         width: 200,
-        height: 50,
+        height: 100,
         color: Colors.green,
         child: Center(child: Text('Leave a comment')),
       ),

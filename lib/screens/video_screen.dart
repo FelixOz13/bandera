@@ -29,7 +29,7 @@ class _VideoScreenState extends State<VideoScreen> {
     'images/bancoazteca.jpeg': 'https://www.bancoazteca.com.mx/',
     'images/qin.jpg': 'https://www.qin.mx/',
     'images/akron.jpg':
-        'https://www.ticketmaster.com.mx/estadio-akron-boletos-zapopan/venue/500700',
+    'https://www.ticketmaster.com.mx/estadio-akron-boletos-zapopan/venue/500700',
     'images/telmex.png': 'https://telmex.com/',
     'images/tecate.jpg': 'https://tecate.com/',
     'images/tradicional.png': 'https://cuervo.com.mx/es/brands/tequila/jose-cuervo-tradicional/',
@@ -144,15 +144,15 @@ class _VideoScreenState extends State<VideoScreen> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
             Navigator.pop(context); // navigate back to previous screen
           },
         ),
         title: Image.asset(
-          'images/mobileregistered.png',
-          height: 180,
-          width: 180,
+          'images/mobileregi6.jpg',
+          height: 280,
+          width: 280,
         ),
       ),
       body: Container(
@@ -160,7 +160,7 @@ class _VideoScreenState extends State<VideoScreen> {
         padding: const EdgeInsets.all(0),
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/mexback2.png'),
+            image: AssetImage('images/universalbackground.jpg'),
             fit: BoxFit.cover,
           ),
         ),
@@ -189,17 +189,17 @@ class _VideoScreenState extends State<VideoScreen> {
             ),
 
 
-            SizedBox(height: 3),
+            SizedBox(height: 10, width:50),
             Container(
               padding: const EdgeInsets.all(12),
               child: Column(
                 children: [
-                  SizedBox(height: 2),
+                  SizedBox(height: 1),
                   Container(
-                    height: 40,
+                    height: 60,
                     child: SocialMediaIcons(),
                   ),
-                  SizedBox(height: 16),
+                  SizedBox(height: 50, width:50),
                   Container(
                     height: 80,
                     child: PlayButtons(
@@ -218,7 +218,7 @@ class _VideoScreenState extends State<VideoScreen> {
                       },
                     ),
                   ),
-                  SizedBox(height: 12),
+                  SizedBox(height: 10, width:50),
                   Column(
                     children: [
                       Column(
@@ -257,11 +257,11 @@ class _VideoScreenState extends State<VideoScreen> {
                           ),
                           Container(
                             height: 50,
-                            width: 340,
+                            width: 370,
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image:
-                                    AssetImage('images/mobileregistered.png'),
+                                    AssetImage('images/mobileregi6.jpg'),
                                 fit: BoxFit.cover,
                               ),
                             ),

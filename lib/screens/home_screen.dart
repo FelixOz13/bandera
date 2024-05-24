@@ -132,16 +132,19 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Bandera Musical'),
-        backgroundColor: Colors.black,
+    appBar: AppBar(
+      title: const Text(
+        'Bandera Musical',
+        style: TextStyle(color: Colors.white),
       ),
+      backgroundColor: Colors.black,
+    ),
       body: Container(
         alignment: Alignment.center,
         padding: const EdgeInsets.all(0),
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/mexback.png'),
+            image: AssetImage('images/universalbackground.jpg'),
             fit: BoxFit.cover,
           ),
         ),
@@ -232,8 +235,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                   ),
                                   hintText:
-                                      'Proximamente podras Agregar Tus Comentarios Aqui en Esta Seccion '
-                                      'Atte. El Compa Felix de Bandera Musical!!!',
+                                      ' Agrega Tus Comentarios Aqui en Esta Seccion ',
+  
                                   hintStyle: TextStyle(
                                     color: Colors.yellow,
                                     fontSize: 15.0,
