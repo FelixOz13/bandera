@@ -1,30 +1,36 @@
 name: bandera
-description: A new Flutter project.
+description: Bandera Musical Mobile App.
 
 publish_to: 'none'
 
 version: 7.0.0+7
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=2.17.0 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
+  webview_flutter: ^2.0.12
   social_media_flutter: ^0.0.2
   http: ^0.13.5
   youtube_player_flutter: ^8.1.2
   url_launcher: ^6.0.3
   flutter_native_splash: ^2.2.19
   comment_box: ^0.0.18
+  supabase_flutter: ^2.0.0
+  flutter_dotenv: ^5.1.0
+  image_picker: ^1.0.5
+  google_sign_in: ^6.2.1
+  
 
 flutter_native_splash:
   android: true
   ios: true
   web: false
   background_image: "assets/universalbackground.jpg"
-  image: "assets/bandera_musical_icon.png"
+  image: "assets/banderalogo.jpeg"
 
 dev_dependencies:
   flutter_test:
@@ -36,7 +42,10 @@ flutter:
   uses-material-design: true
 
   assets:
+    - .env
     - images/
+    - tshirts/
+    
 
   fonts:
     - family: Gajraj
